@@ -82,7 +82,7 @@ export default {
     BurgerMenu
   },
         fetch({ store }) {
-            return axios.get('http://punchlinepunjabi.local/punchlinepunjabi/wp-json/wp/v2/posts/').then((res) => {
+            return axios.get('http://punchlinepunjabi.local/punchlinepunjabi/wp-json/wp/v2/posts?per_page=100').then((res) => {
                 store.commit('frontPagePosts', res.data)
             }).catch((error) => {
                 console.log(error)
