@@ -23,13 +23,11 @@
                 <img v-bind:src="post.featured_image_url" class="cms-card-image" alt="punchline punjabi thumbnail image">
 
                 <div class="cms-text-block">
-                  <h3 class="cms-text-block-header">
-                    {{ post.title.rendered }}
+                  <h3 class="cms-text-block-header" v-html="post.title.rendered">
                   </h3>
 
-                  <p class="cms-paragraph">
-                    {{ post.title.rendered }}
-                  </p>
+                  <div class="cms-paragraph" v-html="post.excerpt.rendered">
+                  </div>
 
                   <div class="category-subcat-wrapper">
                     <div class="cms-category">Features</div>

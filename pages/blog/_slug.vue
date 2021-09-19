@@ -8,7 +8,7 @@
 
     <div class="post-content-container">
       <div id="tte">
-        <h1 class="post-h1">{{ post.title.rendered }}</h1>
+        <h1 class="post-h1" v-html="post.title.rendered"> </h1>
 
         <h2 class="post-h2">{{ this.post.postH2 }}</h2>
 
@@ -22,7 +22,7 @@
           <p v-else class="lyrics-trans">{{ lyric }}</p>
         </div>
 
-        <p class="post-content">{{ post.content.rendered }}</p>
+        <p class="post-content" v-html="post.content.rendered"></p>
   
       </div>
     </div>
