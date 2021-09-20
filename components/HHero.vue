@@ -18,39 +18,16 @@
       <div class="hero-slider-container">
         <div v-on:click="init" id="next" class="arrow">></div>
 
-        <div class="slider">
-          <div class="slide slide1">
+        <div class="slider" v-for="post in posts" :key="post">
+          <div class="slide">
             <div class="slide-content">
-              <img class="slider-img" src="~@/assets/img/sidhu47.jpg" alt="">
-              <h2 class="post-header-slider">
-                Sidhu Moose Wala: The Choice of God or Gun
+              <img class="slider-img" :src="post.featured_image_url" alt="">
+              <h2 class="post-header-slider" v-html="post.title.rendered">
               </h2>
             </div>
           </div>
         </div>
-
-        <div class="slider">
-          <div class="slide slide2">
-            <div class="slide-content">
-              <img class="slider-img" src="~@/assets/img/hundalenemies.jpg" alt="">
-              <h2 class="post-header-slider">
-                Amantej Hundal: 'Enemies'
-              </h2>
-            </div>
-          </div>
-        </div>
-
-        <div class="slider">
-          <div class="slide slide3">
-            <div class="slide-content">
-              <img class="slider-img" src="~@/assets/img/prabhdeepchitta.jpg" alt="">
-              <h2 class="post-header-slider">
-                Prabh Deep: 'Chitta' Punjabi and English Lyrics
-              </h2>
-            </div>
-          </div>
-        </div>
-
+        
         <div id="prev" class="arrow">&lt;</div>
       </div>
 
@@ -63,8 +40,13 @@
 export default {
   methods: {
     init: function () {
-      console.log("this");
     },
+  },
+  props: ['posts'],
+    computed: {
+      posts() {
+          return this.$store.state.posts
+      }
   },
   mounted() {
     let sliderImages = document.querySelectorAll(".slider"),
